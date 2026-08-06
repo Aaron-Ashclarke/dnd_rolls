@@ -31,21 +31,19 @@ fn generate_score() -> i8{
         rolls.push(rand::thread_rng().gen_range(1..=6));
     }
 
-    let mut lowestrole = 
+    let mut lowest_role = 
     Roll {
         roll: 20, 
         index: 0
     };
     
     for i in 0..rolls.len(){
-        if rolls[i] < lowestrole.roll {
-            lowestrole.roll = rolls[i]; 
-            lowestrole.index = i;
+        if rolls[i] < lowest_role.roll {
+            lowest_role.roll = rolls[i]; 
+            lowest_role.index = i;
         }
     }
-    //println!("{:?}",rolls); 
-    rolls.remove(lowestrole.index);
-    //println!("{:?}",rolls); 
+    rolls.remove(lowest_role.index);
 
     rolls.iter().sum()
 }
